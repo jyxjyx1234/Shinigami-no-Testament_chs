@@ -1,0 +1,34 @@
+{
+  "injector": {
+    "enable": true,
+    "print_loaded_modules": false
+  },
+  "allocate_console": false,
+  "locale_emulator": {
+    "charset": 128,
+    "codepage": 932,
+    "enable": true,
+    "locale": 1041,
+    "timezone": "Tokyo Standard Time",
+    "wait_for_exit": false
+  },
+  "font_manager": {
+    "enable": true,
+    "resource_files": ["3rdEye_02_font.ttf"],
+    "spoof_enumeration": {
+      "enable": false,
+      "filter_pitch_and_family": 0,
+      "filter_charset": 1,
+      "spoof_charset": 128
+    },
+    "spoof_creation": {
+      "enable": true,
+      "override_face": "3rdEye_02_font"
+    }
+  },
+  "window_manager": {
+    "enable": true,
+    "overwrite_title": "死神のテスタメント_Claude-sonnet机翻 by jyxjyx1234@github",
+    "process_existing_windows": true
+  }
+}
