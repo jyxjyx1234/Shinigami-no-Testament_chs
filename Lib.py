@@ -32,26 +32,24 @@ class txtfile(object):
     def decode(self):
         self.lines=[]
         for l in self.content:
-            try:
-                self.lines.append(line(l.decode(encoding='sjis')))
-            except UnicodeDecodeError:
-                self.lines.append(line(l))
+            self.lines.append(line(l))
+            
     
     def trans(self,transdict:dict,hanzireplacer:HanziReplacer):
-        self.content=[]
+        self.content=[line.create_ZHUSHI_line().to_bytes()]*30
         l=line.create_empty_msg()
         for new_l in self.lines:
             if new_l.type=='msg':
                 l.add(new_l)
             else:
-                if l.content!='':
+                if l.content!=b'':
                     l.trans(transdict,hanzireplacer)
                     self.content.append(l.to_bytes())
                     l=line.create_empty_msg()
                 self.content.append(new_l.to_bytes())
-        if l.content!='':
+        if l.content!=b'':
             l.trans(transdict,hanzireplacer)
-            self.content.append(l.content.encode(encoding='sjis'))
+            self.content.append(l.content)
             
 
     def save(self,path):
@@ -59,52 +57,62 @@ class txtfile(object):
         save_file_b(path,self.data)
 
 class line(object):
-    def __init__(self,text) -> None:
-        if type(text)==type(b''):
-            self.content=text
-            self.type='bytes'
-        else:
-            self.content=text
+    def __init__(self,b:bytes) -> None:
+            self.content=b
+            self.text=''
             self.classify()
             self.get_plain_text()
+            
     
     def classify(self):
-        if self.content=='':
+        try:
+            texts=self.content.decode(encoding='sjis')
+        except:
+            self.type='bytes'
+            return
+        if texts=='':
             self.type='n'
-        elif self.content[0]=='【':
+        elif texts[0]=='【':
             self.type='name'
-        elif re.match(r'[;$]',self.content):
+            self.text=texts
+        elif re.match(r'[;$]',texts):
             self.type='other'
         else:
             self.type='msg'
+            self.text=texts
     
     def trans(self,transdict:dict,hanzireplacer:HanziReplacer):
         if self.type=='msg':
             try:
-                trans=transdict[self.content]
-                self.content=hanzireplacer.hanzitihuan(trans)
+                trans=transdict[self.text]
+                self.content=hanzireplacer.hanzitihuan(trans).encode(encoding='sjis')
             except KeyError:
                 global errorlist
-                errorlist.append(self.content)
+                errorlist.append(self.text)
 
     def to_bytes(self):
-        if self.type=='bytes':
-            return self.content
-        else:
-            return self.content.encode(encoding='sjis')
+        return self.content
+       
     
     def get_plain_text(self):
         zhuyin=re.compile(r'_t!(.*?),(.*?),(.*?),(.*?)/')
         if self.type=='msg':
-            self.content=re.sub(zhuyin,'',self.content)
+            self.content=re.sub(zhuyin,'',self.content.decode(encoding='sjis')).encode(encoding='sjis')
     
     def add(self,another_line):
         if self.type==another_line.type:
             self.content=self.content+another_line.content
+            texts=self.content.decode(encoding='sjis')
+            self.text=texts
         else:
             raise TypeError()
     
     def create_empty_msg():
-        _=line('')
+        _=line(b'')
         _.type='msg'
+        return _
+    
+    def create_ZHUSHI_line():
+        _=line(';--------------------------------------------'.encode(encoding='sjis'))
+        _.type='other'
         return _

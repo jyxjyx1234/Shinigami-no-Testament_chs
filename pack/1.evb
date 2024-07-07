@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="windows-1252"?>
 <>
-  <InputFile>D:\game\3rdEye\死神のテスタメント\chs\pack\TESTAMENT_.exe</InputFile>
-  <OutputFile>D:\game\3rdEye\死神のテスタメント\chs\pack\TESTAMENT_chs.exe</OutputFile>
+  <InputFile>D:\Shinigami no Testament_chs\pack\TESTAMENT_.exe</InputFile>
+  <OutputFile>D:\Shinigami no Testament_chs\pack\release\TESTAMENT_chs.exe</OutputFile>
   <Files>
     <Enabled>True</Enabled>
     <DeleteExtractedOnExit>False</DeleteExtractedOnExit>
@@ -18,7 +18,7 @@
           <File>
             <Type>2</Type>
             <Name>LocaleEmulator.dll</Name>
-            <File>D:\game\3rdEye\死神のテスタメント\chs\pack\LocaleEmulator.dll</File>
+            <File>D:\Shinigami no Testament_chs\pack\LocaleEmulator.dll</File>
             <ActiveX>False</ActiveX>
             <ActiveXInstall>False</ActiveXInstall>
             <Action>0</Action>
@@ -30,7 +30,7 @@
           <File>
             <Type>2</Type>
             <Name>opengl32.dll</Name>
-            <File>D:\game\3rdEye\死神のテスタメント\chs\pack\opengl32.dll</File>
+            <File>D:\Shinigami no Testament_chs\pack\opengl32.dll</File>
             <ActiveX>False</ActiveX>
             <ActiveXInstall>False</ActiveXInstall>
             <Action>0</Action>
@@ -42,7 +42,7 @@
           <File>
             <Type>2</Type>
             <Name>TESTAMENT_T.WAR</Name>
-            <File>D:\game\3rdEye\死神のテスタメント\chs\pack\TESTAMENT_T.WAR</File>
+            <File>D:\Shinigami no Testament_chs\pack\TESTAMENT_T.WAR</File>
             <ActiveX>False</ActiveX>
             <ActiveXInstall>False</ActiveXInstall>
             <Action>0</Action>
@@ -54,7 +54,7 @@
           <File>
             <Type>2</Type>
             <Name>uif_config.json</Name>
-            <File>D:\game\3rdEye\死神のテスタメント\chs\pack\uif_config.json</File>
+            <File>D:\Shinigami no Testament_chs\pack\uif_config.json</File>
             <ActiveX>False</ActiveX>
             <ActiveXInstall>False</ActiveXInstall>
             <Action>0</Action>
@@ -66,7 +66,7 @@
           <File>
             <Type>2</Type>
             <Name>winmm.dll</Name>
-            <File>D:\game\3rdEye\死神のテスタメント\chs\pack\winmm.dll</File>
+            <File>D:\Shinigami no Testament_chs\pack\winmm.dll</File>
             <ActiveX>False</ActiveX>
             <ActiveXInstall>False</ActiveXInstall>
             <Action>0</Action>
@@ -78,7 +78,7 @@
           <File>
             <Type>2</Type>
             <Name>LoaderDll.dll</Name>
-            <File>D:\game\3rdEye\死神のテスタメント\chs\pack\LoaderDll.dll</File>
+            <File>D:\Shinigami no Testament_chs\pack\LoaderDll.dll</File>
             <ActiveX>False</ActiveX>
             <ActiveXInstall>False</ActiveXInstall>
             <Action>0</Action>
